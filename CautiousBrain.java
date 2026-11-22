@@ -37,7 +37,21 @@ public class CautiousBrain extends Brain {
             if (tryMove(player, traderPath)) return;
         }
 
-        // Otherwise take the easiest path
+        // Always try to push east first
+        if (MapUtils.isSafeMove(player, Direction.EAST)) {
+            player.move(Direction.EAST);
+            return;
+        }
+        // Try diagonals that still move east
+        if (MapUtils.isSafeMove(player, Direction.NORTHEAST)) {
+            player.move(Direction.NORTHEAST);
+            return;
+        }
+        if (MapUtils.isSafeMove(player, Direction.SOUTHEAST)) {
+            player.move(Direction.SOUTHEAST);
+            return;
+        }
+        // East is blocked, take the easiest available move
         Path easiest = vision.easiestPath();
         if (tryMove(player, easiest)) return;
 
