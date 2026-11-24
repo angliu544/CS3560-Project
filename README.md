@@ -84,4 +84,4 @@ All design diagrams are located in the `/diagrams` folder:
 ## Authors
 
 - Michelle Lee
-- 
+- Keana De Padua
